@@ -60,16 +60,18 @@ const Header = () => {
 
     return (
         <>
-            {/* pc or pad header */}
             <motion.header
                 className='absolute top-2 w-full z-50 bg-transparent flex justify-between px-10 py-2 max-md:hidden'
                 initial="hidden"
                 animate="visible"
                 variants={headerVariants}
             >
-                <h2 className='font-oswald text-4xl text-white font-bold flex'>Kk<span className='font-extralight text-primary'>Creative</span></h2>
-                <button className='bg-primary text-black text-xl flex items-center justify-center gap-1 font-sora font-extrabold rounded-3xl px-6 py-2'>
-                    CONTACT <img src={doubleright} alt="double right arrow" className='w-6 pt-1' />
+                <h2 className='font-oswald text-4xl text-white font-bold flex' style={{ zIndex: '1000' }}>
+                    Kk
+                    <span className='font-extralight text-primary'>Creative</span>
+                </h2>
+                <button className='contactBtn bg-primary text-black text-xl flex items-center justify-center gap-2 font-oswald font-bold rounded-3xl px-10 py-1'>
+                    CONTACT <img src={doubleright} alt="double right arrow" className='w-6 pt-[8px]' />
                 </button>
             </motion.header>
 
@@ -94,7 +96,7 @@ const Header = () => {
                     ))}
                 </motion.div>
             </div>
-            <header className='absolute top-2 w-full z-50 bg-transparent flex justify-between px-4 py-2 md:hidden'>
+            <header className='absolute top-2 w-full bg-transparent flex justify-between px-4 py-2 md:hidden'>
                 <h2 className='font-oswald text-3xl text-white font-bold flex'>Kk<span className='font-extralight text-primary'>Creative</span></h2>
                 <button onClick={toggleMenu} className={`relative z-50 p-2`}>
                     <div className={`menu-icon ${isOpen ? 'open' : ''}`}>
@@ -105,21 +107,20 @@ const Header = () => {
                 </button>
             </header>
 
-            {/* Overlay and Mobile Menu */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        className={`hidden max-md:block fixed inset-0 z-40 bg-black bg-opacity-50 transform transition-transform duration-300 ${isOpen ? 'translate-y-0' : 'translate-y-full'}`}
+                        className={`hidden max-md:block fixed inset-0 bg-gray ${isOpen ? 'translate-y-0' : 'translate-y-full'}`}
                         initial={{ y: '100%' }}
                         animate={{ y: 0 }}
                         exit={{ y: '100%', transition: { duration: 0.3 } }}
                     >
                         <div className="flex flex-col justify-center items-center h-full">
-                            <nav className="flex flex-col items-center gap-8">
+                            <nav className="flex flex-col items-center gap-14">
                                 {['ABOUT US', 'SERVICES', 'PROJECTS'].map((item, index) => (
                                     <motion.button
                                         key={item}
-                                        className='text-white text-2xl font-sora font-extrabold hover:text-primary transition duration-300'
+                                        className='text-white text-4xl font-oswald font-extrabold hover:text-primary transition duration-300'
                                         custom={index}
                                         initial="hidden"
                                         animate="visible"
@@ -130,15 +131,9 @@ const Header = () => {
                                     </motion.button>
                                 ))}
                             </nav>
-                            <motion.button
-                                className='absolute bottom-10 bg-primary text-black text-xl flex items-center justify-center gap-1 font-sora font-extrabold rounded-3xl px-6 py-2'
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: 20 }}
-                                transition={{ delay: 0.3, duration: 0.3 }}
-                            >
-                                CONTACT <img src={doubleright} alt="double right arrow" className='w-6 pt-1' />
-                            </motion.button>
+                            <button className='absolute bottom-8 contactBtn bg-primary text-black text-xl flex items-center justify-center gap-2 font-oswald font-bold rounded-3xl px-10 py-1'>
+                                CONTACT <img src={doubleright} alt="double right arrow" className='w-6 pt-[8px]' />
+                            </button>
                         </div>
                     </motion.div>
                 )}

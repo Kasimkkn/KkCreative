@@ -17,6 +17,8 @@ module.exports = {
         'sora': ['Sora', 'sans-serif'],
         'arizona': ['Arizona', 'sans-serif'],
         'oswald': ['Oswald', 'sans-serif'],
+        'monu-bold': ['Monument-bold', 'sans-serif'],
+        'monu': ['Monument', 'sans-serif'],
       },
     },
   },

@@ -15,7 +15,16 @@
 @font-face {
     font-family: 'Oswald';
     src: url('/fonts/Oswald.ttf');
+}
 
+@font-face {
+    font-family: 'Monument-bold';
+    src: url('/fonts/Monument-Ultrabold.otf');
+}
+
+@font-face {
+    font-family: 'Monument';
+    src: url('/fonts/MonumentExtended.otf');
 }
 
 * {
@@ -23,11 +32,29 @@
     padding: 0;
     box-sizing: border-box;
     transition: all 0.3 ease;
+    cursor: none;
+}
+
+button {
+    cursor: none;
 }
 
 body {
-    font-family: 'Sora', sans-serif;
+    font-family: 'Monument';
     background-color: #0A0A0A;
+    cursor: none;
+    user-select: none;
+}
+
+.cursor {
+    pointer-events: none;
+    position: fixed;
+    padding: 0.6rem;
+    background-color: #fff;
+    border-radius: 50%;
+    mix-blend-mode: difference;
+    transition: transform 0.3s ease;
+    z-index: 1000;
 }
 
 .menu-icon {
@@ -36,7 +63,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    cursor: pointer;
     transition: opactity .4s cubic-bezier(.65, .05, .36, 1);
     position: relative;
     z-index: 50;
@@ -61,4 +87,36 @@ body {
 
 .menu-icon.open span:nth-child(3) {
     transform: rotate(45deg) scaleX(.75);
+}
+
+.contactBtn:hover img {
+    transform: translateX(10px);
+    transition: all 0.6s ease;
+    opacity: 0;
+}
+
+.hero-text-shadow:hover {
+    animation: glowText 3s ease-in-out infinite;
+}
+
+@keyframes glowText {
+    0% {
+        text-shadow: 0px 0px 8px, 0 0 0px;
+    }
+
+    25% {
+        text-shadow: 2px 4px 8px, 0 0 2px;
+    }
+
+    50% {
+        text-shadow: 0px 0px 8px, 0 0 0px;
+    }
+
+    75% {
+        text-shadow: 2px 4px 8px, 0 0 2px;
+    }
+
+    100% {
+        text-shadow: 4px 8px 8px, 0 0 5px;
+    }
 }
