@@ -29,3 +29,36 @@ body {
     font-family: 'Sora', sans-serif;
     background-color: #0A0A0A;
 }
+
+.menu-icon {
+    width: 50px;
+    height: 29px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: opactity .4s cubic-bezier(.65, .05, .36, 1);
+    position: relative;
+    z-index: 50;
+}
+
+.menu-icon span {
+    display: block;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: 100% 50%;
+}
+
+.menu-icon.open span:nth-child(1) {
+    transform: rotate(-45deg) scaleX(.75);
+}
+
+.menu-icon.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-icon.open span:nth-child(3) {
+    transform: rotate(45deg) scaleX(.75);
+}
