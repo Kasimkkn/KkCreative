@@ -61,7 +61,7 @@ const Header = () => {
     return (
         <>
             <motion.header
-                className='absolute top-2 w-full z-50 bg-transparent flex justify-between px-10 py-2 max-md:hidden'
+                className='fixed top-2 w-full z-50 bg-transparent flex justify-between px-10 py-2 max-md:hidden'
                 initial="hidden"
                 animate="visible"
                 variants={headerVariants}
@@ -75,7 +75,7 @@ const Header = () => {
                 </button>
             </motion.header>
 
-            <div className='flex w-full justify-center absolute bottom-8 max-md:hidden'>
+            <div className='flex z-50 w-full justify-center fixed bottom-8 max-md:hidden'>
                 <motion.div
                     className='max-md:hidden flex gap-12 bg-gray-dark px-10 py-3 rounded-full border-l-4 border-r-4 border-primary'
                     initial="hidden"

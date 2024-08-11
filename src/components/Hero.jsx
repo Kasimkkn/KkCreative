@@ -12,7 +12,7 @@ const Hero = () => {
                     animate="animate"
                     className='text-[12rem] max-lg:text-[10rem] max-md:text-[8rem] max-sm:text-[4rem] font-oswald font-extrabold text-white uppercase hero-text-shadow'
                 >
-                    {splitText("Creative")}
+                    {/* {splitText("Creative")} */}Creative
                 </motion.div>
                 <motion.div
                     variants={wordVariants}

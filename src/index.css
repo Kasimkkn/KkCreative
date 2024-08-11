@@ -35,15 +35,19 @@
     cursor: none;
 }
 
-button {
-    cursor: none;
-}
-
 body {
     font-family: 'Monument';
     background-color: #0A0A0A;
     cursor: none;
     user-select: none;
+}
+
+button {
+    cursor: none;
+}
+
+::-webkit-scrollbar {
+    width: 2px;
 }
 
 .cursor {
@@ -95,9 +99,9 @@ body {
     opacity: 0;
 }
 
-.hero-text-shadow:hover {
+/* .hero-text-shadow:hover {
     animation: glowText 3s ease-in-out infinite;
-}
+} */
 
 @keyframes glowText {
     0% {
@@ -119,4 +123,27 @@ body {
     100% {
         text-shadow: 4px 8px 8px, 0 0 5px;
     }
+}
+
+.scrolling-text {
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: black;
+}
+
+.scrolling-text .rail {
+    display: flex;
+}
+
+.scrolling-text .rail h4 {
+    white-space: nowrap;
+    font-size: 200px;
+    font-weight: 900;
+    letter-spacing: ls(120);
+    line-height: 1em;
+    margin: 0 2rem 0 0;
+    color: white;
 }
