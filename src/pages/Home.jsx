@@ -1,56 +1,17 @@
 import { motion } from 'framer-motion';
-import React, { useEffect, useRef } from 'react';
-import Card from '../components/Card/Card.jsx';
-import Header from '../components/Header';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { splitText, wordVariants } from '../utils/splitextAnime.jsx';
-import pattern2 from '../assets/arrow-patter.svg'
+import React, { useRef } from 'react';
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
+import pattern2 from '../assets/arrow-patter.svg';
+import Card from '../components/Card/Card.jsx';
+import Header from '../components/Header';
 import { cardData } from '../data/CardData.js';
-import { dummyImages } from '../data/dummyImages.js';
+import { splitText, wordVariants } from '../utils/splitextAnime.jsx';
 gsap.registerPlugin(ScrollTrigger);
-
-const imageSections = [
-    dummyImages,
-    dummyImages,
-    dummyImages,
-    dummyImages,
-];
-
 
 const Home = () => {
     const containerRef = useRef(null)
-    useEffect(() => {
-        document.scrollingElement.scrollTo(0, 0);
-        handleScroll();
-        return () => { };
-    }, []);
-
-    const handleScroll = () => {
-        ScrollTrigger.defaults({
-            scroller: '.scroller',
-        });
-
-        gsap.utils.toArray('section').forEach((section, index) => {
-            const wrapper = section.querySelector('.wrapper');
-            const [xStart, xEnd] =
-                index % 2
-                    ? ['100%', (wrapper.scrollWidth - section.offsetWidth) * -1]
-                    : [wrapper.scrollWidth * -1, 0];
-            gsap.fromTo(
-                wrapper,
-                { x: xStart },
-                {
-                    x: xEnd,
-                    scrollTrigger: {
-                        trigger: section,
-                        scrub: 1,
-                    },
-                }
-            );
-        });
-    };
     return (
         <LocomotiveScrollProvider options={{ smooth: true, lerp: 0.5 }} watch={[]} containerRef={containerRef}>
             <main className='p-2 max-w-[100vw]' data-scroll-container ref={containerRef}>
@@ -108,25 +69,6 @@ const Home = () => {
                             />
                         </React.Fragment>
                     ))}
-                </div>
-                <div className="scroller h-screen overflow-auto overflow-x-hidden max-md:hidden">
-                    {imageSections.map((images, sectionIndex) => (
-                        <section key={`section-${sectionIndex}`}>
-                            <div className="wrapper flex text-[16vh] font-medium">
-                                {images.map((image, imageIndex) => (
-                                    <img
-                                        key={`image-${imageIndex}`}
-                                        className="h-60 max-md:h-32 rounded-xl m-2 transition-all hover:scale-95"
-                                        src={image}
-                                        alt={`Dummy ${imageIndex}`}
-                                    />
-                                ))}
-                            </div>
-                        </section>
-                    ))}
-                </div>
-                <div className='h-[60vh]'>
-
                 </div>
             </main>
         </LocomotiveScrollProvider>
