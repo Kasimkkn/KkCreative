@@ -77,7 +77,7 @@ const Header = () => {
 
             <div className='flex z-50 w-full justify-center fixed bottom-8 max-md:hidden'>
                 <motion.div
-                    className='max-md:hidden flex gap-12 bg-gray-dark px-10 py-3 rounded-full border-l-4 border-r-4 border-primary'
+                    className='max-md:hidden z-50 flex gap-12 bg-gray-dark px-10 py-3 rounded-full border-l-4 border-r-4 border-primary'
                     initial="hidden"
                     animate="visible"
                     variants={bottomHeaderVariants}
@@ -96,7 +96,7 @@ const Header = () => {
                     ))}
                 </motion.div>
             </div>
-            <header className='absolute top-2 w-full bg-transparent flex justify-between px-4 py-2 md:hidden'>
+            <header className='absolute top-2 z-50 w-full bg-transparent flex justify-between px-4 py-2 md:hidden'>
                 <h2 className='font-oswald text-3xl text-white font-bold flex'>Kk<span className='font-extralight text-primary'>Creative</span></h2>
                 <button onClick={toggleMenu} className={`relative z-50 p-2`}>
                     <div className={`menu-icon ${isOpen ? 'open' : ''}`}>
@@ -110,7 +110,7 @@ const Header = () => {
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        className={`hidden max-md:block fixed inset-0 bg-gray ${isOpen ? 'translate-y-0' : 'translate-y-full'}`}
+                        className={`hidden max-md:block absolute z-10 inset-0 bg-black ${isOpen ? 'translate-y-0' : 'translate-y-full'}`}
                         initial={{ y: '100%' }}
                         animate={{ y: 0 }}
                         exit={{ y: '100%', transition: { duration: 0.3 } }}
