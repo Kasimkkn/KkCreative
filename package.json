@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@splidejs/react-splide": "^0.7.12",
+    "@splidejs/splide-extension-auto-scroll": "github:splidejs/splide-extension-auto-scroll",
     "framer-motion": "^11.3.24",
     "gsap": "^3.12.5",
     "locomotive-scroll": "^4.1.4",
